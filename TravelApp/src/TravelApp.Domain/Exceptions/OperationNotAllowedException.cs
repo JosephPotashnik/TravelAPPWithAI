@@ -38,28 +38,5 @@ namespace TravelApp.Domain.Exceptions
             UserId = userId;
             Operation = operation;
         }
-
-        /// <summary>
-        /// Initializes a new instance of the OperationNotAllowedException class with a custom message
-        /// </summary>
-        /// <param name="operation">The operation that was attempted</param>
-        /// <param name="customMessage">The custom error message</param>
-        public OperationNotAllowedException(string operation, string customMessage)
-            : base(DomainErrorCodes.UnauthorizedOperation, customMessage)
-        {
-            Operation = operation;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the OperationNotAllowedException class with a custom message and inner exception
-        /// </summary>
-        /// <param name="operation">The operation that was attempted</param>
-        /// <param name="message">The custom error message</param>
-        /// <param name="innerException">The inner exception</param>
-        public OperationNotAllowedException(string operation, string message, Exception innerException)
-            : base(DomainErrorCodes.UnauthorizedOperation, message, innerException)
-        {
-            Operation = operation;
-        }
     }
 }

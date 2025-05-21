@@ -57,10 +57,10 @@ namespace TravelApp.Application.Services
 
             // Check if email or username already exists
             if (await _userRepository.EmailExistsAsync(email))
-                throw new ValidationException("Email already in use");
+                throw new ValidationException("Email", "Email already in use");
 
             if (await _userRepository.UsernameExistsAsync(username))
-                throw new ValidationException("Username already taken");
+                throw new ValidationException("Username", "Username already taken");
 
             // Hash the password (in a real application, use a proper password hasher)
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(password);
