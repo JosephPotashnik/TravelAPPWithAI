@@ -152,6 +152,13 @@ Clean Architecture implementation with C# Minimal API backend and Next.js fronte
 
 ## Project Structure
 
+### Project Root
+```
+TravelAPPWithAI/
+├── travel-app-frontend/   # Pre-installed Next.js application
+└── TravelApp/            # C# backend to be implemented
+```
+
 ### Backend Structure
 ```
 TravelApp/
@@ -170,14 +177,19 @@ TravelApp/
 ### Frontend Structure
 ```
 travel-app-frontend/
-├── pages/
-├── components/
-├── services/
-├── hooks/
-├── utils/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   ├── services/
+│   ├── hooks/
+│   └── utils/
 ├── public/
 └── styles/
 ```
+
+**Note**: A Next.js application with React and Tailwind CSS has been pre-installed in the travel-app-frontend subdirectory. This project uses the Next.js App Router architecture rather than the Pages Router.
 
 ## Related Documents
 - See [FUNCTIONAL.md](FUNCTIONAL.md) for feature requirements
