@@ -56,6 +56,10 @@ AI-powered travel application focused on trip planning and itinerary creation us
   - Use null parameter checks with ArgumentNullException
   - Create detailed XML documentation for public methods
   - Include async suffix for asynchronous methods
+  - Implement helper methods for complex logic within private regions
+  - Use pagination for large result sets with (Results, TotalCount) tuples
+  - Apply scoring algorithms for recommendation features
+  - Implement geographical calculations for location-based features
 
 - **Error Handling**:
   - Use try/catch blocks with specific catches
