@@ -3,12 +3,12 @@ using System;
 namespace TravelApp.Domain.Exceptions
 {
     /// <summary>
-    /// Exception thrown when a user is not authorized to perform an operation
+    /// Exception thrown when an operation is not allowed
     /// </summary>
-    public class UnauthorizedOperationException : DomainException
+    public class OperationNotAllowedException : DomainException
     {
         /// <summary>
-        /// Gets the user ID that attempted the unauthorized operation
+        /// Gets the user ID that attempted the operation
         /// </summary>
         public string? UserId { get; }
 
@@ -18,45 +18,45 @@ namespace TravelApp.Domain.Exceptions
         public string Operation { get; }
 
         /// <summary>
-        /// Initializes a new instance of the UnauthorizedOperationException class
+        /// Initializes a new instance of the OperationNotAllowedException class
         /// </summary>
         /// <param name="operation">The operation that was attempted</param>
-        public UnauthorizedOperationException(string operation)
-            : base(DomainErrorCodes.UnauthorizedOperation, $"Unauthorized operation: {operation}")
+        public OperationNotAllowedException(string operation)
+            : base(DomainErrorCodes.UnauthorizedOperation, $"Operation not allowed: {operation}")
         {
             Operation = operation;
         }
 
         /// <summary>
-        /// Initializes a new instance of the UnauthorizedOperationException class with user ID
+        /// Initializes a new instance of the OperationNotAllowedException class with user ID
         /// </summary>
-        /// <param name="userId">The user ID that attempted the unauthorized operation</param>
+        /// <param name="userId">The user ID that attempted the operation</param>
         /// <param name="operation">The operation that was attempted</param>
-        public UnauthorizedOperationException(string userId, string operation)
-            : base(DomainErrorCodes.UnauthorizedOperation, $"User '{userId}' is not authorized to perform operation: {operation}")
+        public OperationNotAllowedException(string userId, string operation)
+            : base(DomainErrorCodes.UnauthorizedOperation, $"User '{userId}' is not allowed to perform operation: {operation}")
         {
             UserId = userId;
             Operation = operation;
         }
 
         /// <summary>
-        /// Initializes a new instance of the UnauthorizedOperationException class with a custom message
+        /// Initializes a new instance of the OperationNotAllowedException class with a custom message
         /// </summary>
         /// <param name="operation">The operation that was attempted</param>
         /// <param name="customMessage">The custom error message</param>
-        public UnauthorizedOperationException(string operation, string customMessage)
+        public OperationNotAllowedException(string operation, string customMessage)
             : base(DomainErrorCodes.UnauthorizedOperation, customMessage)
         {
             Operation = operation;
         }
 
         /// <summary>
-        /// Initializes a new instance of the UnauthorizedOperationException class with a custom message and inner exception
+        /// Initializes a new instance of the OperationNotAllowedException class with a custom message and inner exception
         /// </summary>
         /// <param name="operation">The operation that was attempted</param>
         /// <param name="message">The custom error message</param>
         /// <param name="innerException">The inner exception</param>
-        public UnauthorizedOperationException(string operation, string message, Exception innerException)
+        public OperationNotAllowedException(string operation, string message, Exception innerException)
             : base(DomainErrorCodes.UnauthorizedOperation, message, innerException)
         {
             Operation = operation;

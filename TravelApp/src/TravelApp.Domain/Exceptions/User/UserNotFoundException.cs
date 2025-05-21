@@ -20,19 +20,9 @@ namespace TravelApp.Domain.Exceptions.User
         /// Initializes a new instance of the UserNotFoundException class with an email
         /// </summary>
         /// <param name="email">The email of the user that was not found</param>
-        /// <param name="searchByEmail">Flag to indicate searching by email</param>
-        public UserNotFoundException(string email, bool searchByEmail)
+        /// <param name="isEmail">Flag to indicate searching by email</param>
+        public UserNotFoundException(string email, bool isEmail)
             : base("User", email, $"User with email '{email}' was not found.")
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the UserNotFoundException class with a username
-        /// </summary>
-        /// <param name="username">The username of the user that was not found</param>
-        /// <param name="searchByUsername">Flag to indicate searching by username</param>
-        public UserNotFoundException(string username, bool searchByUsername)
-            : base("User", username, $"User with username '{username}' was not found.")
         {
         }
 
@@ -40,8 +30,9 @@ namespace TravelApp.Domain.Exceptions.User
         /// Initializes a new instance of the UserNotFoundException class with a custom message
         /// </summary>
         /// <param name="message">The custom error message</param>
-        public UserNotFoundException(string message)
-            : base("User", "unknown", message)
+        /// <param name="identifier">The identifier used to search for the user</param>
+        public UserNotFoundException(string message, string identifier)
+            : base("User", identifier, message)
         {
         }
 
