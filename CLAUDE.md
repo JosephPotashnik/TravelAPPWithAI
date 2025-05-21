@@ -1,110 +1,151 @@
-**IMPORTANT FOR CLAUDE: Reference this file before implementing anything**
-
-# Project: [Project Name]
+# Project: Travel App with AI
 
 ## Project Overview
 
-A brief description of the project, its purpose, and key goals.
+AI-powered travel application focused on trip planning and itinerary creation using C# backend with Minimal APIs and Next.js frontend.
 
 ## Tech Stack
 
-- Languages: [list primary languages]
-- Frameworks: [list frameworks]
-- Tools: [list tools]
+- Languages: C# (backend), JavaScript/TypeScript (frontend)
+- Frameworks: ASP.NET Core Minimal APIs (backend), Next.js (frontend)
+- Tools: MongoDB, Tailwind CSS, ESLint, Prettier
+- Package Managers: NuGet (backend), npm (frontend)
 
 ## Code Style & Conventions
 
 ### Import/Module Standards
 
-- [Specify import standards]
+- **C# Backend**:
+  - Group imports: System → Third-party → Project (alphabetically within groups)
+  - Use explicit using statements, no global usings
+  - Keep using statements outside namespace declarations
+
+- **Next.js Frontend**:
+  - Order: React/Next → External libraries → Components → Hooks → Utils
+  - Use absolute imports for project files with path aliases
+  - Destructure named imports when importing multiple items
 
 ### Naming Conventions
 
-- [Functions naming convention]
-- [Classes/Components naming convention]
-- [Constants naming convention]
-- [Files naming convention]
+- **Functions**:
+  - C#: PascalCase for all methods
+  - JS/TS: camelCase for functions, methods, and properties
+
+- **Classes/Components**:
+  - C#: PascalCase for all classes, interfaces (interfaces prefixed with "I")
+  - React: PascalCase for components and their files
+
+- **Constants**:
+  - C#: ALL_CAPS for static constants, PascalCase for readonly properties
+  - JS/TS: UPPER_SNAKE_CASE for immutable constants
+
+- **Files**:
+  - C#: PascalCase for all files (UserService.cs)
+  - React: PascalCase for component files (ProfileCard.tsx)
+  - JS/TS Utils: camelCase for utility files (formatDate.ts)
 
 ### Patterns to Follow
 
-- [Key architectural patterns]
-- [Error handling approaches]
-- [Code organisation principles]
+- **Backend**:
+  - Use Repository pattern for data access
+  - Service pattern for business logic
+  - Keep controllers thin, business logic in services
+  - Use dependency injection for all services
+
+- **Error Handling**:
+  - Use try/catch blocks with specific catches
+  - Log all exceptions with proper context
+  - Return consistent error responses from API
+  - Create custom exception types for domain-specific errors
+
+- **Frontend**:
+  - Use functional components with hooks
+  - Extract reusable logic to custom hooks
+  - Keep components focused on single responsibility
+  - Use prop destructuring with defaults
 
 ## Development Workflow
 
-- Branch strategy
-- Commit message format
-- PR requirements
+- **Branch Strategy**: GitHub Flow
+  - Main branch is always deployable
+  - Create feature branches from main
+  - Name format: `feature/feature-name`, `fix/bug-name`
+  - Use pull requests to merge back to main
+
+- **Commit Standard**: Conventional Commits
+  - Format: `type(scope): message`
+  - Types: feat, fix, docs, style, refactor, test, chore
+  - Keep messages clear and concise
+  - Reference issue numbers when applicable
+
+- **PR Requirements**:
+  - All tests must pass
+  - Code review by at least one other developer
+  - No merge conflicts with main
+  - PR description explains the change purpose
 
 ## Testing Strategy
 
-- Test frameworks
-- Coverage requirements
-- Test naming conventions
+- **Test Framework**:
+  - C#: xUnit
+  - JavaScript: Jest with React Testing Library
 
-## Environment Setup
+- **Coverage Requirements**:
+  - Minimum 80% code coverage for business logic
+  - Test public APIs of all services
+  - Test happy path and edge cases
 
-- Required environment variables
-- Setup commands
-- Local development server
+- **Naming Convention**:
+  - `[MethodName]_[Scenario]_[ExpectedResult]`
+  - Example: `GenerateItinerary_WithInvalidDates_ThrowsArgumentException`
 
 ## Common Commands
 
 ```bash
-# Build command
-[command]
+# Backend
+dotnet restore             # Restore dependencies
+dotnet build               # Build the solution
+dotnet test                # Run all tests
+dotnet watch run           # Run with hot reload
 
-# Test command
-[command]
-
-# Lint command
-[command]
-
-# Check command
-[command]
-
-# Development server
-[command]
+# Frontend
+npm install                # Install dependencies
+npm run dev                # Start development server
+npm run build              # Build for production
+npm run lint               # Run ESLint
+npm run test               # Run Jest tests
 ```
 
 ## Project Structure
 
-Key directories and their purpose:
+### Backend (C#)
+- **Domain**: Entities, interfaces, domain logic
+- **Application**: Services, DTOs, use cases
+- **Infrastructure**: External concerns, data access
+- **API**: Endpoints, controllers, request/response handling
 
-- `/src` - [description]
-- `/tests` - [description]
-- [other important directories]
+### Frontend (Next.js)
+- **pages**: Route components
+- **components**: Reusable UI components
+- **services**: API clients and external services
+- **hooks**: Custom React hooks
+- **utils**: Helper functions
 
-## Review Process Guidelines
+## Review Process Checklist
 
-Before submitting any code, ensure the following steps are completed:
-
-1. **Run all lint, check and test commands**
-
-2. **Review outputs and iterate until all issues are resolved**
-
-3. **Assess compliance**:
-   For each standard, explicitly state ✅ or ❌ and explain why:
-
-   - Code style and formatting
-   - Naming conventions
-   - Architecture patterns (refer to `ARCHITECTURE.md`)
-   - Error handling
-   - Test coverage
-   - Documentation
-
-4. **Self-review checklist**:
-   - [ ] Code follows defined patterns
-   - [ ] No debug/commented code
-   - [ ] Error handling implemented
-   - [ ] Tests written and passing
-   - [ ] Documentation updated
-
-## Known Issues & Workarounds
-
-Document any current limitations or workarounds Claude should be aware of.
+- [ ] Code follows defined patterns and architecture
+- [ ] Naming conventions are consistent
+- [ ] Error handling is implemented properly
+- [ ] Tests are written and passing
+- [ ] Documentation is updated
+- [ ] No debug code or commented-out code
+- [ ] Performance considerations addressed
 
 ## References
 
-Links to relevant external documentation, design docs, or resources.
+- [ASP.NET Core Minimal APIs](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [MongoDB with C#](https://mongodb.github.io/mongo-csharp-driver/)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [FUNCTIONAL.md](FUNCTIONAL.md) - Feature requirements
+- [ARCHITECTURE.md](ARCHITECTURE.md) - Detailed architecture
