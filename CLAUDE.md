@@ -19,6 +19,7 @@ AI-powered travel application focused on trip planning and itinerary creation us
   - Group imports: System → Third-party → Project (alphabetically within groups)
   - Use explicit using statements, no global usings
   - Keep using statements outside namespace declarations
+  - Follow the order: System namespaces, then external libraries, then project namespaces
 
 - **Next.js Frontend**:
   - Order: React/Next → External libraries → Components → Hooks → Utils
@@ -51,12 +52,19 @@ AI-powered travel application focused on trip planning and itinerary creation us
   - Service pattern for business logic
   - Keep controllers thin, business logic in services
   - Use dependency injection for all services
+  - Implement extensive input validation in services
+  - Use null parameter checks with ArgumentNullException
+  - Create detailed XML documentation for public methods
+  - Include async suffix for asynchronous methods
 
 - **Error Handling**:
   - Use try/catch blocks with specific catches
   - Log all exceptions with proper context
   - Return consistent error responses from API
   - Create custom exception types for domain-specific errors
+  - Check entity ownership before permitting operations
+  - Use domain-specific exceptions (e.g., UserNotFoundException)
+  - Validate business rules before performing operations
 
 - **Frontend**:
   - Use functional components with hooks
